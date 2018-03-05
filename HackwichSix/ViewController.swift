@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var Slider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,6 +22,10 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func sliderHasMoved(_ sender: Any) {
+        
+        print("The value of the slider is:\(Slider.value)")
+    }
     @IBAction func myGuessButtonPressed(_ sender: Any) {
     //1. create alert view
         let alert = UIAlertController(title:"Hello World!", message: "This is my first alert view", preferredStyle: .alert)
