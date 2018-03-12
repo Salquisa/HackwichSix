@@ -25,20 +25,29 @@ class ViewController: UIViewController {
         
         //Set targetValue to a randomly generated number that the acr4random_uniform function.
         
-        targetValue = 1 + Int(arc4random_uniform(100))
+        //Call startNewRound
+        startNewRound()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    func startNewRound() {
+        
+        targetValue = 1 + Int(arc4random_uniform(100))
+        currentValue = 50
+        Slider.value = Float(currentValue)
+        
+    }
 
     @IBAction func sliderHasMoved(_ sender: Any) {
         
         print("The value of the slider is:\(Slider.value)")
         currentValue = lroundf(Slider.value)
     }
+    
+    
     @IBAction func myGuessButtonPressed(_ sender: Any) {
     //5. New variable message the displays a message that includes currentValue
         let message = "The value is: \(currentValue)" + "\nThe target value is: \(targetValue)"
@@ -55,17 +64,9 @@ class ViewController: UIViewController {
     //4. present alertview on the screen
         present(alert, animated: true, completion: nil)
         
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        
+        startNewRound()
         
     }
+    
 }
 
