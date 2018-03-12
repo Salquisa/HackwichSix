@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 //create a variable to hold the target value
     var targetValue: Int = 1
     
+    @IBOutlet var targetLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +29,19 @@ class ViewController: UIViewController {
         
         //Call startNewRound
         startNewRound()
+        
+        //Call updateTextLabel
+        updateTargetLabel()
     }
 
+        //Create a new function that displays the targetValue in the targetLabel
+    
+    func updateTargetLabel() {
+
+        targetLabel.text = String(targetValue)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,6 +51,7 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = 50
         Slider.value = Float(currentValue)
+        updateTargetLabel()
         
     }
 
@@ -67,6 +81,7 @@ class ViewController: UIViewController {
         startNewRound()
         
     }
+  
     
 }
 
